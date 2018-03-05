@@ -1,6 +1,6 @@
-<h1>Hiro Nishide</h1>
-<p>hirooooooooop</p>
+<h1><%= @user[:name] %></h1>
+<p><%= @user[:username] %></p>
 <ul>
-  <li>Location : Kyoto, Japan</li>
-  <li>About    : Hello, I'm Hiro.</li>
+  <li>Location : <%= @user[:location] %></li>
+  <li>About    : <%= @user[:about] %></li>
 </ul>
