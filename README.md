@@ -1,24 +1,6 @@
-# README
+# f_rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+以下のサイトを参考にRails学習したソースをUPしています。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MITAKALAB DEVELOPER様のRuby on Railsをはじめよう記事から
+http://mitakalab.tumblr.com/rails
