@@ -3,11 +3,9 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all
   end
 
-  def show
-  end
+  def show; end
 
-  def new
-  end
+  def new; end
 
   def create
     @tweet = Tweet.new
