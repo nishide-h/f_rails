@@ -8,10 +8,8 @@ class TweetsController < ApplicationController
   def new; end
 
   def create
-    @tweet = Tweet.new
-    @tweet.title = params[:tweet][:title]
-    @tweet.content = params[:tweet][:content]
-    @tweet.save
+    Tweet.create(title: params[:tweet][:title],
+                 content: params[:tweet][:content])
     redirect_to '/tweets/index'
   end
 end
