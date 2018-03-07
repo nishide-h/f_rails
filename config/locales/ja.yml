@@ -1,0 +1,22 @@
+ja:
+  locale: 言語設定
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
+      submit: 保存する
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        username: 表示名称
+        location: 所在地
+        about: コメント
+    models:
+      tweet: ツイート
+    attributes:
+      tweet:
+        title: タイトル
+        content: 内容
