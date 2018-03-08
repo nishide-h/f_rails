@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
@@ -10,6 +12,6 @@ class TweetsController < ApplicationController
   def create
     Tweet.create(title: params[:tweet][:title],
                  content: params[:tweet][:content])
-    redirect_to '/tweets/index'
+    redirect_to "/tweets/index"
   end
 end
