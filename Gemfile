@@ -25,6 +25,7 @@ gem "jbuilder", "~> 2.5"
 # gem 'capistrano-rails', group: :development
 
 gem "kaminari"
+gem "exception_notification"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
