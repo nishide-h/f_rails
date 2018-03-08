@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class TweetsController < ApplicationController
+  PER = 5
+
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.page(params[:page]).per(PER)
   end
 
   def show; end
