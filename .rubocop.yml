@@ -163,3 +163,6 @@ Style/Semicolon:
 Style/ColonMethodCall:
   Enabled: true
 
+# 将来的にRubyに実装され不要になると思われるため対象外
+Style/FrozenStringLiteralComment:
+  Enabled: false
