@@ -8,21 +8,43 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <p class="navbar-text pull-right">
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %> |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'navbar-link' %>
-      <% else %>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'navbar-link' %> |
-        <%= link_to 'Login', new_user_session_path, class: 'navbar-link' %>
-      <% end %>
-    </p>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/tweets/index">Tweets</a></li>
-    </ul>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">
+          <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+          <% end %>
+        </h1>
+      </header>
+      <nav class="global-nav">
+        <ul class="global-nav__items">
+          <% if user_signed_in? %>
+            <li class="global-nav__item">
+              <%= link_to 'Edit profile', edit_user_registration_path, class: 'global-nav__link' %>
+            </li>
+            <li class="global-nav__item">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'global-nav__link' %>
+            </li>
+          <% else %>
+            <li class="global-nav__item">
+              <%= link_to 'Sign up', new_user_registration_path, class: 'global-nav__link' %>
+            </li>
+            <li class="global-nav__item">
+              <%= link_to 'Login', new_user_session_path, class: 'global-nav__link' %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+      <br>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <br>
+      <ul>
+        <li class="active"><a href="/tweets/index">Tweets</a></li>
+      </ul>
+      <br>
+      <%= yield %>
+      <br>
+    </div>
   </body>
 </html>
