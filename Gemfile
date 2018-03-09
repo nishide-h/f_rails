@@ -26,6 +26,7 @@ gem "jbuilder", "~> 2.5"
 
 gem "kaminari"
 gem "exception_notification"
+gem "devise"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
