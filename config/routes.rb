@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  root to: "tweet#index"
+  root to: "tweets#index"
   get "tweets/index"
   get "tweets/show"
   get "tweets/new"
