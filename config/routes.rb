@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   root to: "tweet#index"
   get "tweets/index"
   get "tweets/show"
