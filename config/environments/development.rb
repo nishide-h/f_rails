@@ -72,4 +72,5 @@ Rails.application.configure do
       sender_address: %{"notifier" <notifier@example.com>},
       exception_recipients: %w{nishide.h@gmail.com}
     }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 end
