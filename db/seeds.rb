@@ -13,7 +13,7 @@
 @user.username = "hanryu"
 @user.location = "Tokyo, Japan"
 @user.about = "Nice to meet you!! I\'m from database!"
-@user.save 
+@user.save
 100.times do |count|
   Tweet.create(title: "タイトル #{ count }", content: "コメント #{ count }")
 end

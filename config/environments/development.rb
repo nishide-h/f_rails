@@ -62,14 +62,14 @@ Rails.application.configure do
     port: 587,
     domain: "smtp.gmail.com",
     authentication: "plain",
-    user_name: ENV['G_USERNAME'],
-    password: ENV['G_PASS'],
+    user_name: ENV["G_USERNAME"],
+    password: ENV["G_PASS"],
     enable_starttls_auto: true
   }
   config.middleware.use ExceptionNotification::Rack,
-    :email => {
-      :email_prefix => "[Tweets] ",
-      :sender_address => %{"notifier" <notifier@example.com>},
-      :exception_recipients => %w{nishide.h@gmail.com}
+    email: {
+      email_prefix: "[Tweets] ",
+      sender_address: %{"notifier" <notifier@example.com>},
+      exception_recipients: %w{nishide.h@gmail.com}
     }
 end
