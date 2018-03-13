@@ -28,6 +28,8 @@ gem "kaminari"
 gem "exception_notification"
 gem "devise"
 gem "devise-i18n"
+gem "omniauth"
+gem "omniauth-twitter"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
