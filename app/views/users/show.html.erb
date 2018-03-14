@@ -2,6 +2,7 @@
 <p><%= @user[:username] %></p>
 <ul>
   <li><%= t('locale') %> : <%= I18n.locale %></li>
+  <li><%= image_tag @user.avatar.url(:thumb) %></li>
   <li><%= t('activerecord.attributes.user.location') %> : <%= @user[:location] %></li>
   <li><%= t('activerecord.attributes.user.about') %> : <%= @user[:about] %></li>
 </ul>
