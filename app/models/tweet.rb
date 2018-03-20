@@ -1,4 +1,4 @@
-# frozen_string_literal: true
-
 class Tweet < ApplicationRecord
+  validates :title, presence: true
+  validates :content, presence: true
 end
