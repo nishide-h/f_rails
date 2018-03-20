@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   post "tweets" => "tweets#create"
 
   get "users/index"
-  #get "users/show/:username" => "users#show"
   get "users/show/:id" => "users#show"
 end
