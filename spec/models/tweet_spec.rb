@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Tweet, type: :model do
-  describe "登録" do
+  describe "validates" do
     before do
       @tweet = Tweet.new(
         title: "テストタイトル",
@@ -9,7 +9,7 @@ RSpec.describe Tweet, type: :model do
       )
     end
 
-    it "通常登録" do
+    it "正常系" do
       expect(@tweet).to be_valid
     end
 
