@@ -42,10 +42,13 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <br>
-      <ul>
-        <li class="active"><a href="/tweets/index">Tweets</a></li>
-      </ul>
-      <br>
+      <% if user_signed_in? %>
+        <ul>
+          <li class="active"><a href="/tweets/index">Tweets</a></li>
+          <li class=""><a href="/tweets/new">Tweet!!</a></li>
+        </ul>
+        <br>
+      <% end %>
       <%= yield %>
       <br>
     </div>
