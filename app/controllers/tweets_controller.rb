@@ -12,14 +12,20 @@ class TweetsController < ApplicationController
   def new; end
 
   def create
-    Tweet.create(title: params[:tweet][:title],
-                 content: params[:tweet][:content],
-                 user_id: params[:tweet][:user_id])
-    redirect_to "/tweets/index"
+    @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = params[:user_id]
+
+    respond_to do |format|
+      if @tweet.save
+        format.html { redirect_to user_tweets_path, notice: "Tweetを登録しました。" }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   private
     def tweet_params
-      params.require(:tweet).permit(:id, :title, :content, :user_id)
+      params.require(:tweet).permit(:title, :content, :user_id)
     end
 end
