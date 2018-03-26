@@ -19,4 +19,33 @@ RSpec.describe TweetsController, type: :controller do
       expect(response).to render_template :show
     end
   end
+
+  describe "POST #create" do
+    before do
+      login_user user
+    end
+
+    it "データが登録されること" do
+      expect do
+        post :create, params: {
+          user_id: user.id,
+          tweet: {
+            title: valid_tweet.title,
+            content: valid_tweet.content
+          }
+        }
+      end.to change(Tweet, :count).by(1)
+    end
+
+    it "データ登録後、index画面へリダイレクトされること" do
+      post :create, params: {
+        user_id: user.id,
+        tweet: {
+          title: valid_tweet.title,
+          content: valid_tweet.content
+        }
+      }
+      expect(response).to redirect_to user_tweets_path
+    end
+  end
 end
