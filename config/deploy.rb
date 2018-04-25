@@ -49,7 +49,7 @@ set :pty, true # sudoが実行できるように
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-set :ssh_options, :port =&amp;gt; "4649"
+set :ssh_options, :port => "4649"
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
