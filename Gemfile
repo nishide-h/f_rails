@@ -21,8 +21,6 @@ gem "jbuilder", "~> 2.5"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 gem "kaminari"
 gem "exception_notification"
@@ -47,6 +45,10 @@ group :development do
   gem "rubocop"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "capistrano"
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rails'
 end
 
 group :test do
@@ -54,4 +56,3 @@ group :test do
 end
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "capistrano"
