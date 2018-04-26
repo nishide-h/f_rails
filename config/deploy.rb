@@ -60,17 +60,14 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
 
 set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/cache tmp/sockets vendor/bundle}
-set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
 
 set :bundle_jobs, 4
-
-
-
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
+    invoke 'puma:restart'
   end
 end
 # Default
