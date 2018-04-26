@@ -65,9 +65,25 @@ set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
 set :bundle_jobs, 4
 
 after 'deploy:publishing', 'deploy:restart'
+
 namespace :deploy do
+  task :init_permission do
+    on release_roles :all do
+      execute :sudo, :chown, '-R', "#{fetch(:user)}:#{fetch(:group)}", deploy_to
+    end
+  end
+
+  task :reset_permission do
+    on release_roles :all do
+      execute :sudo, :chown, '-R', "nginx:nginx", deploy_to
+    end
+  end
+  
   task :restart do
     invoke 'puma:restart'
   end
+
+  before :starting, :init_permission
+  after :finished, :reset_permission
 end
 # Default
