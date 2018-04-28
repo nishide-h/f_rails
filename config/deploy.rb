@@ -54,21 +54,24 @@ set :ssh_options, :port => "4649"
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
-#気にしない↓↓↓
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, :all # default value
+set :rbenv_prefix, "#{fetch(:rbenv_path)}/bin/rbenv exec"
 
-set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/cache tmp/sockets vendor/bundle}
-set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
+set :pid_file, "tmp/pids/puma.pid"
+set :port, '3000'
+
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system') 
 
 set :bundle_jobs, 4
 
-after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
+  desc 'Restart application'
   task :restart do
-    invoke 'puma:restart'
+    on roles(:web) do
+      execute "cd /home/public_html/nishide.tk/public/f_rails && kill -SIGTERM 'cat #{fetch(:pid_file)}'" if File.exists?("/home/public_html/nishide.tk/public/f_rails/#{fetch(:pid_file)}")
+      execute "cd /home/public_html/nishide.tk/public/f_rails && (nohup #{fetch(:rbenv_prefix)} bundle exec rails s -e #{fetch(:rails_env)} --port=#{fetch(:port)} -b 0.0.0.0 &) >& /dev/null"
+    end
   end
+  
+  after :publishing, :restart
 end
-# Default
