@@ -68,8 +68,8 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:web) do
-      execute "cd /home/public_html/nishide.tk/public/f_rails && kill -SIGTERM 'cat #{fetch(:pid_file)}'" if File.exists?("/home/public_html/nishide.tk/public/f_rails/#{fetch(:pid_file)}")
-      execute "cd /home/public_html/nishide.tk/public/f_rails && (nohup #{fetch(:rbenv_prefix)} bundle exec rails s -e #{fetch(:rails_env)} --port=#{fetch(:port)} -b 0.0.0.0 &) >& /dev/null"
+      execute "cd /home/nishide/public_html/nishide.tk/public/f_rails && kill -SIGTERM 'cat #{fetch(:pid_file)}'" if File.exists?("/home/nishide/public_html/nishide.tk/public/f_rails/#{fetch(:pid_file)}")
+      execute "cd /home/nishide/public_html/nishide.tk/public/f_rails && (nohup #{fetch(:rbenv_prefix)} bundle exec rails s -e #{fetch(:rails_env)} --port=#{fetch(:port)} -b 0.0.0.0 &) >& /dev/null"
     end
   end
   
