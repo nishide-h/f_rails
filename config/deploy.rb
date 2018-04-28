@@ -54,7 +54,7 @@ set :ssh_options, :port => "4649"
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
-set :rbenv_prefix, "#{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_prefix, "#{fetch(:rbenv_path)}/shims/bundle exec"
 
 set :pid_file, "tmp/pids/puma.pid"
 set :port, '3000'
