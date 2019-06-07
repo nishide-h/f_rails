@@ -55,9 +55,6 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1'
 
 set :rbenv_path, "~/.rbenv"
-set :rbenv_prefix, "#{fetch(:rbenv_path)}/versions/2.5.1/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-set :rbenv_roles, :all
 
 set :pid_file, "tmp/pids/puma.pid"
 set :port, '3000'
